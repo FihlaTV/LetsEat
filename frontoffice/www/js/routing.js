@@ -11,6 +11,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'templateUrl': 'templates/home.html'
     })
 
+    $stateProvider.state('search', {
+        'url': '/search',
+        'templateUrl': 'templates/search.html'
+    })
+
     $urlRouterProvider.otherwise('/login')
 
 });
