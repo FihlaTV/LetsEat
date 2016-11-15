@@ -1,0 +1,36 @@
+.menu-page{
+	h1{
+		padding-top:80px;
+		padding-left:20px;
+	}
+	.btn-edit-profil{
+		color:$LE-dark-text-color;
+		text-decoration: none;
+		padding-left:20px;
+	}
+	hr{
+		margin-left:20px;
+		margin-top:15px;
+	}
+
+	.list{
+		padding-left:20px;
+		padding-right:20px;
+		border:none;
+
+		.item.item-button-right{
+		    border-top: 0px;
+		    border-left: 0px;
+		    border-right: 0px;
+		    border-bottom: 1px #ccc solid;
+		    margin-top: 22px;
+		    padding-left:0px;
+		    padding-right:0px;
+
+		    .button.button-light{
+		    	padding-right: 0px;
+    			margin-right: -16px;
+		    }
+		}
+	}
+}
