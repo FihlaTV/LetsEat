@@ -16,44 +16,56 @@
             </div>
         </div>
 
-        <div class="box-home">
+        <div class="box-home home-big">
             <h2>Vu dernièrement</h2>
             <div class="containt-events">
                 <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
                     <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
-                    <div class="overlay overlay-black">
-                        <h3>Montpellier</h3>
-                        <p>2 repas</p>
+                    <span class="price">&euro; 89</span>
+                    <div class="infos">
+                        <div class="info">
+                            <h4>Tortillas chez pablo</h4>
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                            </fieldset>
+                        </div>
+                        <div class="picture">
+                            <img src="http://lorempicsum.com/futurama/40/40/{{(key + 2)}}" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="box-home">
+        <div class="box-home home-big">
             <h2>Juste pour le week-end</h2>
             <div class="containt-events">
                 <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
                     <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
-                    <div class="overlay overlay-black">
-                        <h3>Montpellier</h3>
-                        <p>2 repas</p>
-                    </div>
+                    <p class="city">Lille</p>
                 </div>
             </div>
         </div>
 
-        <div class="box-home">
-            <h2>Sélection Lets'Eat</h2>
+        <div class="box-home home-big">
+            <h2>Destination populaire</h2>
             <div class="containt-events">
                 <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
                     <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
-                    <div class="overlay overlay-black">
-                        <h3>Montpellier</h3>
-                        <p>2 repas</p>
-                    </div>
+                    <p class="city">Amsterdam</p>
                 </div>
             </div>
         </div>
+
     </ion-content>
 </ion-view>
 
