@@ -20,6 +20,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'url': '/message',
         'templateUrl': 'templates/messages.html'
     })
+    
+    $stateProvider.state('menu', {
+        'url': '/menu',
+        'templateUrl': 'templates/menu.html'
+    })
 
     $urlRouterProvider.otherwise('/login')
 
