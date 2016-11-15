@@ -1,13 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Note = new Schema({
-    
-    rating: Number,
-    description: String
-});
-
-
 var User = new Schema({
     
 	nom: String,
@@ -18,7 +11,10 @@ var User = new Schema({
     email: String,
     ville: String,
     phone: String,
-    notes: [Note] 
+    notes: [{
+        rating: Number,
+        description: String
+    }] 
 });
 
 module.exports = mongoose.model('User', User);
