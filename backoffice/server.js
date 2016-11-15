@@ -33,6 +33,7 @@ router.use(function(req, res, next) {
 });
 
 //Connect to database
+mongoose.Promise = global.Promise;
 mongoose.connect(databaseLink);
 
 //Bienvenue
@@ -41,12 +42,28 @@ router.get('/', function(req, res) {
 });
 
 //Get all users
-router.get('/users', function(req, res) {
+router.route('/users').get(function(req, res) {
     User.find(function(err, users) {
         if (err)
-            res.send(err);
+            console.log(err);
+            return res.send(err);
 
-        res.send(users);
+        res.json(users);
+    });
+});
+
+//Add a User
+router.route('/users').post(function(req, res) {
+    
+    var user = new User(req.body);
+
+    user.save(function(err) {
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        }
+
+        res.json({ message: 'User Added' });
     });
 });
 
