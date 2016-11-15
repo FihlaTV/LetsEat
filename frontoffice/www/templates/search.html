@@ -1,0 +1,32 @@
+<ion-view class="background-img notlogged">
+	<ion-content scroll="true" class="search">
+    	<ion-list>
+  			<ion-item>
+	  	  		<input 
+	  	  		placeholder="Où ?" 
+	  	  		clearInput
+	  	  		type="search" 
+                ng-focus="searchFocused = true"
+                ng-blur="searchFocused = false"
+                ng-change="scrollTop()"
+                ng-model="searchGroup"
+                class="search-input"
+                >  
+	  	    </ion-item>
+		</ion-list>
+		<ion-list class="destinations-populer">
+		  <ion-list-header class="list-destinations-header">
+		    Destinations populaires
+		  </ion-list-header>
+		  <ion-item>Montpellier</ion-item>
+		  <ion-item>Bacelone</ion-item>
+		  <ion-item>New York</ion-item>
+		  <ion-item>Tokyo</ion-item>
+		  <ion-item>Londre</ion-item>
+		  <ion-item>Paris</ion-item>
+		  <ion-item>Prague</ion-item>
+		  <ion-item>Pékin</ion-item>
+		</ion-list>
+    </ion-content>
+</ion-view>
+
