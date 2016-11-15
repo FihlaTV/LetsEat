@@ -1,0 +1,7 @@
+frontoffice/platforms/*
+.DS_Store*
+~*
+backoffice/node_modules
+frontoffice/node_modules
+*.log
+.idea
