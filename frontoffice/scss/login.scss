@@ -1,9 +1,9 @@
 .page-login{
-	background: url('../img/congruent_outline.png');
-	color:#fff;
+	background: url('../img/crissXcross.png');
+	color:$LE-white;
 
 	a{
-		color:#fff;
+		color: $LE-white;
 	}
 
 	.btn-connexion{
@@ -17,29 +17,33 @@
 	}
 	.center-connexion{
 
-		margin:40% auto auto auto;
+		margin: 40% auto auto auto;
 
 		h3{
-			color:#fff;
-			width:80%;
-			margin:auto auto auto 10%;
+			color: $LE-white;
+			width: 80%;
+			margin: 180px auto auto 10%;
 		}
 
 		.button.button-light{
 			width:90%;
 			border-radius: 50px;
-			margin:10px auto auto 5%;
+			margin:30px auto auto 5%;
 			color: $LE-dark-text-color;
 			display: flex;
 			align-items: center;
-			justity-content: center;
+			justify-content: center;
+
+			svg {
+				margin-right: 10px;
+			}
 		}
 		
 		.button.button-dark{
 			width:90%;
 			border-radius: 50px;
 			margin:10px auto auto 5%;
-			border: 1px #fff solid;
+			border: 1px $LE-white solid;
 			background-color: Transparent;
             background-repeat:no-repeat;
 		}
