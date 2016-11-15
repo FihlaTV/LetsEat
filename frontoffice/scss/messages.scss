@@ -1,0 +1,71 @@
+.message {
+
+  div.separator {
+    height: 1px;
+    width: 50px;
+    background-color: $LE-lightgrey;
+    margin: 40px 0 0 20px;
+  }
+
+  h2 {
+    font-size: $font-medium;
+    color: $LE-dark-text-color;
+    font-weight: normal;
+    margin-left: 20px;
+  }
+
+  div.containt-messages {
+    margin-top: 20px;
+
+    div.message {
+      display: flex;
+      padding: 0 0 15px 0;
+      margin: 0 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid $LE-lightgrey;
+
+
+      div.picture {
+        margin-right: 10px;
+      }
+
+      > div {
+
+        div.head {
+
+          display: flex;
+          justify-content: space-between;
+
+          h3 {
+            font-size: $font-medium;
+            color: $LE-dark-text-color;
+          }
+
+          span {
+            color: $LE-lightgrey;
+            font-size: $font-xsmall;
+            font-weight: 400;
+          }
+        }
+
+        div.content {
+          p {
+            font-size: $font-small;
+            font-weight: 300;
+            max-height: 20px;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+          }
+
+          span {
+            font-weight: 400;
+            font-size: $font-xsmall;
+            color: #b9b9b9;
+          }
+        }
+      }
+    }
+  }
+
+}

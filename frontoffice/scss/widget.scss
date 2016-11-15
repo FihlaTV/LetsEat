@@ -4,6 +4,13 @@ body {
   font-family: 'Roboto';
 }
 
+body h1 {
+  padding: 50px 20px 0 20px;
+  font-size: 40px;
+  color: $LE-dark-text-color;
+  font-weight: bolder;
+}
+
 div.overlay {
   position: absolute;
   top: 0;
@@ -38,9 +45,11 @@ fieldset {
   margin: 0 0 0 -5px !important;
 }
 
-fieldset, label { padding: 0 !important; }
-body{ margin: 20px; }
-h1 { font-size: 1.5em; margin: 10px; }
+div.picture img {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
 
 /****** Style Star Rating Widget *****/
 

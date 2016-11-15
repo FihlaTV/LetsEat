@@ -1,13 +1,6 @@
 .home {
   padding: 20px 0;
 
-  h1 {
-    padding: 50px 20px 0 20px;
-    font-size: 40px;
-    color: $LE-dark-text-color;
-    font-weight: bolder;
-  }
-
   p.ask {
     color: $LE-dark-text-color;
     margin: 0 0 40px 20px
@@ -65,12 +58,6 @@
           display: flex;
           justify-content: space-between;
           margin-top: 10px;
-
-          div.picture img {
-            height: 40px;
-            width: 40px;
-            border-radius: 20px;
-          }
 
           h4 {
             color: $LE-dark-text-color;
