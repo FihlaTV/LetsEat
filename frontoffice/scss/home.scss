@@ -1,0 +1,58 @@
+.home {
+  padding: 20px 0;
+
+  h1 {
+    padding: 50px 20px 0 20px;
+    font-size: 40px;
+    color: $LE-dark-text-color;
+    font-weight: bolder;
+  }
+
+  p.ask {
+    color: $LE-dark-text-color;
+    margin: 0 0 40px 20px
+  }
+
+  .box-home {
+    border-bottom: 1px solid $LE-lightgrey;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+
+    h2 {
+      font-weight: bold;
+      color: $LE-dark-text-color;
+      padding: 0 20px;
+      font-size: 18px;
+    }
+
+    div.containt-events {
+      position: relative;
+      overflow-x: scroll;
+      width: 100%;
+      height: 200px;
+      margin-left: 20px;
+
+      div.event {
+        position: absolute;
+        top: 0;
+        height: 200px;
+        width: 300px;
+        margin-right: 10px;
+
+        h3, p {
+          color: $LE-white;
+          text-align: center;
+        }
+
+        h3 {
+          margin-top: 65px;
+          font-size: $font-xlarge;
+        }
+
+        p {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
