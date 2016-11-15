@@ -1,0 +1,33 @@
+body {
+  font-family: 'Roboto';
+}
+
+div.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &.fixed {
+    position: fixed;
+  }
+
+  &.overlay-black {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.tab-nav.tabs {
+  height: 44px;
+  padding-bottom: 4px;
+
+  > a {
+    display: flex;
+    align-items: center;
+  }
+
+  .tab-item-active i {
+    color: $LE-red;
+  }
+}

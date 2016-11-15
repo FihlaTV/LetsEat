@@ -1,0 +1,68 @@
+<ion-view>
+    <ion-content scroll="true" class="home">
+        <h1>Bonjour Marc</h1>
+        <p class="ask">Quelle sera votre prochain repas ?</p>
+
+        <div class="box-home">
+            <h2>Recherche récentes</h2>
+            <div class="containt-events">
+                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
+                    <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
+                    <div class="overlay overlay-black">
+                        <h3>Montpellier</h3>
+                        <p>2 repas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-home">
+            <h2>Vu dernièrement</h2>
+            <div class="containt-events">
+                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
+                    <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
+                    <div class="overlay overlay-black">
+                        <h3>Montpellier</h3>
+                        <p>2 repas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-home">
+            <h2>Juste pour le week-end</h2>
+            <div class="containt-events">
+                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
+                    <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
+                    <div class="overlay overlay-black">
+                        <h3>Montpellier</h3>
+                        <p>2 repas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-home">
+            <h2>Sélection Lets'Eat</h2>
+            <div class="containt-events">
+                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
+                    <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
+                    <div class="overlay overlay-black">
+                        <h3>Montpellier</h3>
+                        <p>2 repas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+<ion-tabs class="tabs-stable tabs-icon-top">
+
+    <ion-tab icon-on="ion-ios-home-outline" icon-off="ion-ios-home-outline"></ion-tab>
+    <ion-tab icon-on="ion-ios-search" icon-off="ion-ios-search"></ion-tab>
+    <ion-tab icon-on="ion-ios-chatboxes-outline" icon-off="ion-ios-chatboxes-outline"></ion-tab>
+    <ion-tab icon-on="ion-fork" icon-off="ion-fork"></ion-tab>
+    <ion-tab icon-on="ion-ios-personadd-outline" icon-off="ion-ios-personadd-outline"></ion-tab>
+
+</ion-tabs>
