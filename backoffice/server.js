@@ -221,12 +221,10 @@ router.route('/events/citydate/:city&:date').get(function(req, res) {
     if(req.params.date != 'all')
     {
         query = Event.find({"dates.date"  :  {$regex  : req.params.date}});
-        console.log("Date non null");
     }
     else
     {
         query = Event.find(null);
-        console.log("Date null");
     }
     query.where('adresse.city',req.params.city);
     query.exec(function (err, event) { 
@@ -239,6 +237,24 @@ router.route('/events/citydate/:city&:date').get(function(req, res) {
 });
 
 
+//Get number event by city and date
+router.route('/events/citydate/count/:city&:date').get(function(req, res) {
+    if(req.params.date != 'all')
+    {
+        query = Event.find({"dates.date"  :  {$regex  : req.params.date}}).count();
+    }
+    else
+    {
+        query = Event.find(null).count();
+    }
+    query.where('adresse.city',req.params.city);
+    query.exec(function (err, event) { 
+        if (err) {
+            return res.send(err);
+        }
+        res.json(event);
+    });  
+});
 
 //Start the server
 server.listen(apiPort);
