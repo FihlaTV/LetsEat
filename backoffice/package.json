@@ -2,8 +2,9 @@
   "name": "backoffice",
   "version": "1.0.0",
   "description": "Let's Eat - BackOffice",
-  "main": "server.js",
+  "main": "backoffice/server.js",
   "scripts": {
+    "start": "node backoffice/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "cbes",
