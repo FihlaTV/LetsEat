@@ -81,8 +81,19 @@ router.get('/events', function(req, res) {
     });
 });
 
+//Get one event
+router.route('/event/:id').get(function(req, res) {
+    Event.findById(req.params.id, function(err, event) {
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        }
+        res.json(event);
+    });
+});
+
 // Create Events
-router.route('/events')
+router.route('/event')
     .post(function(req, res) {
     
     var event = new Event(req.body);
@@ -96,7 +107,45 @@ router.route('/events')
         });
     });
 
+//Delete one event
+router.route('/event/:id').delete(function(req, res) {
+  Event.remove({
+    _id: req.params.id
+  }, function(err, event) {
+    if (err) {
+      return res.send(err);
+    }
 
+    res.json({ message: 'Event deleted' });
+  });
+});
+
+// Update one event
+router.route('/event/:id').put(function(req,res){
+    Event.findOne({ _id: req.params.id }, function(err, event) {
+        if (err) {
+            return res.send(err);
+        }
+        
+        event.createur = req.body.createur;
+        event.nom = req.body.nom;
+        event.description = req.body.description;
+        event.nb_participant = req.body.nb_participant;
+        event.dates = req.body.dates;
+        event.prix = req.body.prix;
+        event.adresse = req.body.adresse;
+        event.picture = req.body.picture;
+     
+        // save the event
+        event.save(function(err) {
+            if (err) {
+                return res.send(err);
+              }
+
+            res.json({ message: 'Event updated!' });
+        });
+    });
+});
 //Start the server
 server.listen(port);
 console.log('Start on -> localhost:' + port + apiName);
