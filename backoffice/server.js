@@ -1,5 +1,5 @@
 var apiName = '/letseat-api';
-var apiPort = 8080;
+var apiPort = 80;
 var databasePort = 55097;
 var user = 'letseat';
 var password = 'letseat34';
