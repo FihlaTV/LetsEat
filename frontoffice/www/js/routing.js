@@ -26,6 +26,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'templateUrl': 'templates/menu.html'
     })
 
-    $urlRouterProvider.otherwise('/login')
+    $urlRouterProvider.otherwise('/home')
 
 });
