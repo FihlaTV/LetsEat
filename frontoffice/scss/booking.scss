@@ -1,0 +1,49 @@
+.booking-page{
+	 padding: 20px 0;
+
+	h2{
+		margin-left: 5%;
+		color: $LE-dark-text-color;
+		font-weight: inherit;
+		font-size: 20px;
+	}
+
+	hr{
+		margin-left:20px;
+		margin-top:15px;
+	}
+
+
+
+	.box-home {
+		padding-bottom: 20px;
+		width: 90%;
+		margin: auto auto 20px 5%;
+		border-bottom: 1px $LE-lightgrey solid;
+
+		.containt-events{
+			a{
+				text-decoration: none;
+
+		    	.descripiton{
+	    		    margin: -230px 5% auto auto;
+				    text-align: center;
+				    color: #FFFFFF;
+				    height: 225px;
+				    padding-top: 80px;
+
+		    		h3{
+		    			color:$LE-white;
+		    		}
+
+		    		p{
+	    			    font-weight: 800;
+    					font-size: 14px;
+		    		}
+
+		    		
+		    	}
+		    }
+    	}
+	}
+}
