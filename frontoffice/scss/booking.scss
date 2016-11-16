@@ -22,11 +22,12 @@
 		border-bottom: 1px $LE-lightgrey solid;
 
 		.containt-events{
+			position: relative;
+
 			a{
 				text-decoration: none;
 
 		    	.descripiton{
-	    		    margin: -230px 5% auto auto;
 				    text-align: center;
 				    color: #FFFFFF;
 				    height: 225px;
