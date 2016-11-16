@@ -1,0 +1,96 @@
+.bar-header.bar-light{
+	border: none;
+}
+
+.booking-detail-page{
+	padding: 50px 0;
+	.booking-detail-title{
+		width: 90%;
+		margin-left: 5%;
+		margin-top:30px;
+
+		h2{
+			padding-top:20px;
+		}
+		.status{
+			color: $LE-dark-text-color;
+			font-size: $font-small;
+		}
+		.reference{
+			color: $LE-dark-text-color;
+			font-size: $font-small;
+		}
+		hr{
+			color: $LE-lightgrey;
+		}
+	}
+	.list{
+
+		padding: 0px 20px 50px 20px;
+		border:none;
+
+		.item{
+			border-top: 0px;
+		    border-left: 0px;
+		    border-right: 0px;
+		    border-bottom: 1px #ccc solid;
+		    margin-top: 22px;
+		    padding-left:0px;
+		    padding-right:0px;
+
+
+		    a{
+		    	color: $LE-dark-text-color;
+		    	text-decoration: none;
+		    }
+
+		    span{
+		    	float: right;
+		    	color: $LE-red;
+		    }
+		    .adresse_evnet{
+		    	width: 60%;
+		    }
+		    
+		}
+		.item-booking-detail-btns{
+			text-align: center;
+
+			.button.button-LE{
+		    	color: $LE-white;
+		    	background-color: $LE-red;
+		    	width: 32%;
+
+		    	p{
+		    		color: $LE-white;
+		    	}
+
+		    	&:hover{
+		    		background-color:#cf4436;
+		    		border: 1px #5c1e18 solid;
+		    	}
+		    }
+		}
+		.item-avatar {
+
+			> img:first-child{
+				position: absolute;
+			    top: 16px;
+			    right: 0px;
+			    left: auto;
+			    max-width: 40px;
+			    max-height: 40px;
+			    width: 100%;
+			    height: 100%;
+		    	border-radius: 50%;
+			}
+
+			h2,p{
+				margin-left: 0px;
+			}
+			span{
+				float: none;
+			}
+		}
+	}
+}
