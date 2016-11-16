@@ -37,6 +37,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'templateUrl': 'templates/booking_detail.html'
     })
 
+    $stateProvider.state('profil', {
+        'url': '/profil',
+        'templateUrl': 'templates/user_profil.html'
+    })
+
     $urlRouterProvider.otherwise('/home')
 
 });

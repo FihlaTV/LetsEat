@@ -1,0 +1,71 @@
+.profil{
+	padding: 20px 0;
+
+	.user_photo{
+		position: relative;
+	}
+
+	a.button.button-stable.button-edit-profil {
+	    border-radius: 50%;
+	    float: right;
+	    margin: -30px 15px auto auto;
+	    height: 50px;
+        display: flex;
+    	justify-content: center;
+    	align-items: center;
+	}
+
+	.user-profil-title{
+		width: 84%;
+		margin-left: 8%;
+	}
+
+	.list{
+		width: 84%;
+		margin-left: 8%;
+		border:none;
+		margin-bottom: 50px;
+
+		.item{
+			border-top: 0px;
+		    border-left: 0px;
+		    border-right: 0px;
+		    border-bottom: 1px #ccc solid;
+		    margin-top: 22px;
+		    padding-left:0px;
+		    padding-right:0px;
+
+		    a{
+		    	color: $LE-dark-text-color;
+		    	text-decoration: none;
+		    }
+
+		    span{
+		    	float: right;
+		    	color: $LE-red;
+		    }
+		}
+		.item.item-avatar{
+			border: none;
+
+			span{
+				float: none;
+			}
+
+			h2,p{
+				margin-left: 80px;
+			}
+		}
+
+		.item.comment-link {
+		    margin-bottom: 40px;
+		    text-align: center;
+
+		    a{
+		    	color: $LE-red;
+		    }
+		}
+
+	}
+
+}
