@@ -13,7 +13,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('search', {
         'url': '/search',
-        'templateUrl': 'templates/search.html'
+        'templateUrl': 'templates/search.html',
+        'controller': 'searchCtrl'
     })
 
     $stateProvider.state('message', {
