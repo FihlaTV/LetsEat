@@ -21,7 +21,8 @@
     div.containt-events {
       position: relative;
       overflow-x: scroll;
-      width: 100%;
+      overflow-y: hidden;
+      width: 90%;
       height: 200px;
       margin-left: 20px;
 
