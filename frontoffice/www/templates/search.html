@@ -1,32 +1,133 @@
 <ion-view class="background-img notlogged">
-	<ion-content scroll="true" class="search">
-    	<ion-list>
-  			<ion-item>
-	  	  		<input 
-	  	  		placeholder="Où ?" 
-	  	  		clearInput
-	  	  		type="search" 
-                ng-focus="searchFocused = true"
-                ng-blur="searchFocused = false"
-                ng-change="scrollTop()"
-                ng-model="searchGroup"
-                class="search-input"
-                >  
-	  	    </ion-item>
-		</ion-list>
-		<ion-list class="destinations-populer">
-		  <ion-list-header class="list-destinations-header">
+	<ion-content scroll="false" class="search">
+
+		<form ng-submit="submit()">
+			<div class="city" ng-show="step === 'city'">
+				<input
+					placeholder="Où ?"
+					clearInput
+					type="search"
+					ng-focus="searchFocused = true"
+					ng-blur="searchFocused = false"
+					ng-change="scrollTop()"
+					ng-model="credential.city"
+					class="search-input"
+				/>
+			</div>
+
+            <div class="date {{ step == 'date' ? 'open' : '' }}">
+
+                <svg class="close" ng-click="changeStep('city')" width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <path d="M24.5569521,14.5569008 L15.4430479,14.5569008 L15.4430479,5.44299664 C15.4430479,5.19843 15.2450903,4.99994872 15,4.99994872 C14.7554334,4.99994872 14.5569521,5.19843 14.5569521,5.44299664 L14.5569521,14.5569008 L5.44304792,14.5569008 C5.19848128,14.5569008 5,14.7553821 5,14.9999487 C5,15.2450391 5.19848128,15.4435203 5.44304792,15.4435203 L14.5569521,15.4435203 L14.5569521,24.5569008 C14.5569521,24.8019911 14.7554334,24.9999487 15,24.9999487 C15.2450903,24.9999487 15.4430479,24.8019911 15.4430479,24.5569008 L15.4430479,15.4435203 L24.5569521,15.4435203 C24.8015187,15.4435203 25,15.2450391 25,14.9999487 C25,14.7553821 24.8015187,14.5569008 24.5569521,14.5569008" id="Fill-1" fill="#9B9B9B" fill-rule="evenodd" transform="translate(15.000000, 14.999949) rotate(45.000000) translate(-15.000000, -14.999949) "></path>
+                </svg>
+
+                <h1>Sélectionnez votre date</h1>
+
+                <div class="date-containt">
+                    <div class="header">
+                        <div class="day">L</div>
+                        <div class="day">M</div>
+                        <div class="day">M</div>
+                        <div class="day">J</div>
+                        <div class="day">V</div>
+                        <div class="day">S</div>
+                        <div class="day">D</div>
+                    </div>
+                    <div class="body">
+                        <div class="month" ng-repeat="month in dates track by $index">
+                            <h2>{{ month.title }}</h2>
+                            <div class="month-containt">
+                                <div class="row" ng-repeat="row in month.dates track by $index">
+                                    <div class="day" ng-repeat="day in row track by $index">
+                                        <span>{{ day.day }}</span>
+                                        <input type="radio" ng-model="credential.date" name="date" data-day="{{ day.day }}" value="{{ day.fullDate }}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="next">Suivant
+                    <svg width="12px" height="20px" viewBox="-1 0 12 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+                        <desc>Created with Sketch.</desc>
+                        <defs></defs>
+                        <path d="M10.0297436,0 C10.1410256,0 10.2517949,0.0425641026 10.3364103,0.127179487 C10.5061538,0.296410256 10.5061538,0.571282051 10.3364103,0.741025641 L1.04769231,10.0297436 L10.1333333,19.1148718 C10.3025641,19.2846154 10.3025641,19.5594872 10.1333333,19.7287179 C9.96358974,19.8984615 9.68871795,19.8984615 9.51948718,19.7287179 L0.127179487,10.3364103 C-0.0425641026,10.1671795 -0.0425641026,9.89230769 0.127179487,9.72307692 L9.72307692,0.127179487 C9.80769231,0.0425641026 9.91846154,0 10.0297436,0" id="Fill-1" stroke="none" fill="#FFFFFF" fill-rule="evenodd" transform="translate(5.231795, 9.928013) rotate(180.000000) translate(-5.231795, -9.928013) "></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="recap {{ step == 'recap' ? 'open' : '' }}">
+                <input
+                        placeholder="Où ?"
+                        clearInput
+                        type="search"
+                        ng-focus="searchFocused = true"
+                        ng-blur="searchFocused = false"
+                        ng-change="scrollTop()"
+                        ng-model="credential.city"
+                        class="search-input"
+                />
+                <div class="separator"></div>
+
+                <div class="field">
+                    <span>Dates</span>
+                    <span ng-click="changeStep('date')">Ajouter</span>
+                </div>
+
+                <div class="field">
+                    <span>Cuisiniers</span>
+                    <span ng-click="changeStep('participant')">Ajouter</span>
+                </div>
+            </div>
+
+            <div class="participant {{ step == 'participant' ? 'open' : '' }}">
+                <svg class="close" ng-click="changeStep('recap')" width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <path d="M24.5569521,14.5569008 L15.4430479,14.5569008 L15.4430479,5.44299664 C15.4430479,5.19843 15.2450903,4.99994872 15,4.99994872 C14.7554334,4.99994872 14.5569521,5.19843 14.5569521,5.44299664 L14.5569521,14.5569008 L5.44304792,14.5569008 C5.19848128,14.5569008 5,14.7553821 5,14.9999487 C5,15.2450391 5.19848128,15.4435203 5.44304792,15.4435203 L14.5569521,15.4435203 L14.5569521,24.5569008 C14.5569521,24.8019911 14.7554334,24.9999487 15,24.9999487 C15.2450903,24.9999487 15.4430479,24.8019911 15.4430479,24.5569008 L15.4430479,15.4435203 L24.5569521,15.4435203 C24.8015187,15.4435203 25,15.2450391 25,14.9999487 C25,14.7553821 24.8015187,14.5569008 24.5569521,14.5569008" id="Fill-1" fill="#9B9B9B" fill-rule="evenodd" transform="translate(15.000000, 14.999949) rotate(45.000000) translate(-15.000000, -14.999949) "></path>
+                </svg>
+
+                <div class="field">
+                    <span>Cuisinier</span>
+                    <div>
+                        <span ng-click="decrementParticipant()">-</span>
+                        <span class="input" ng-click="incrementParticipant()">{{ credential.participant }}</span>
+                    </div>
+                </div>
+
+                <button class="next">Enregistrer
+                    <svg width="12px" height="20px" viewBox="-1 0 12 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+                        <desc>Created with Sketch.</desc>
+                        <defs></defs>
+                        <path d="M10.0297436,0 C10.1410256,0 10.2517949,0.0425641026 10.3364103,0.127179487 C10.5061538,0.296410256 10.5061538,0.571282051 10.3364103,0.741025641 L1.04769231,10.0297436 L10.1333333,19.1148718 C10.3025641,19.2846154 10.3025641,19.5594872 10.1333333,19.7287179 C9.96358974,19.8984615 9.68871795,19.8984615 9.51948718,19.7287179 L0.127179487,10.3364103 C-0.0425641026,10.1671795 -0.0425641026,9.89230769 0.127179487,9.72307692 L9.72307692,0.127179487 C9.80769231,0.0425641026 9.91846154,0 10.0297436,0" id="Fill-1" stroke="none" fill="#FFFFFF" fill-rule="evenodd" transform="translate(5.231795, 9.928013) rotate(180.000000) translate(-5.231795, -9.928013) "></path>
+                    </svg>
+                </button>
+            </div>
+
+            <button class="goSearch" ng-show="step == 'recap'" ng-click="search(credential)">Voir 51 ateliers</button>
+		</form>
+
+		<ul class="destinations-populer">
+		  <li class="list-destinations-header">
 		    Destinations populaires
-		  </ion-list-header>
-		  <ion-item>Montpellier</ion-item>
-		  <ion-item>Bacelone</ion-item>
-		  <ion-item>New York</ion-item>
-		  <ion-item>Tokyo</ion-item>
-		  <ion-item>Londre</ion-item>
-		  <ion-item>Paris</ion-item>
-		  <ion-item>Prague</ion-item>
-		  <ion-item>Pékin</ion-item>
-		</ion-list>
+		  </li>
+		  <li class="item">Montpellier</li>
+		  <li class="item">Bacelone</li>
+		  <li class="item">New York</li>
+		  <li class="item">Tokyo</li>
+		  <li class="item">Londre</li>
+		  <li class="item">Paris</li>
+		  <li class="item">Prague</li>
+		  <li class="item">Pékin</li>
+		</ul>
     </ion-content>
 </ion-view>
 
