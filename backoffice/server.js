@@ -1,8 +1,10 @@
 var apiName = '/letseat-api';
-var port = 8080;
-var databaseName = 'LETSEAT';
-var databaseIP = 'localhost';
-var databaseLink = 'mongodb://' + databaseIP + '/' + databaseName;
+var apiPort = 8080;
+var databasePort = 55097;
+var user = 'letseat';
+var password = 'letseat34';
+var databaseName = 'letseat';
+var databaseLink = 'mongodb://' + user + ':' + password + '@ds155097.mlab.com:' + databasePort + '/' + databaseName;
 
 //Dependencies
 var express    = require('express');
@@ -200,5 +202,5 @@ router.route('/event/:id').put(function(req,res){
     });
 });
 //Start the server
-server.listen(port);
-console.log('Start on -> localhost:' + port + apiName);
+server.listen(apiPort);
+console.log('Start on -> localhost:' + apiPort + apiName);
