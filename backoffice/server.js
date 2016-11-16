@@ -45,7 +45,7 @@ router.get('/', function(req, res) {
 router.route('/users').get(function(req, res) {
     User.find(function(err, users) {
         if (err) {
-            console.log(err);
+            console.error(err);
             return res.send(err);
         }
         res.json(users);
@@ -56,7 +56,7 @@ router.route('/users').get(function(req, res) {
 router.route('/user/:id').get(function(req, res) {
     User.findById(req.params.id, function(err, user) {
         if (err) {
-            console.log(err);
+            console.error(err);
             return res.send(err);
         }
         res.json(user);
@@ -70,7 +70,7 @@ router.route('/users').post(function(req, res) {
 
     user.save(function(err) {
         if (err) {
-            console.log(err);
+            console.error(err);
             return res.send(err);
         }
         res.json({ message: 'User Added' });
