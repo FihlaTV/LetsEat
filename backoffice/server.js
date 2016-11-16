@@ -201,6 +201,61 @@ router.route('/event/:id').put(function(req,res){
         });
     });
 });
+
+// Get event by country
+router.route('/event/country/:country').get(function(req, res) {
+    query = Event.find(null);
+    query.where('adresse.country',req.params.country);
+    
+    query.exec(function (err, event) { 
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        }
+        res.json(event);
+    });
+});
+
+//Get event by city and date
+router.route('/events/citydate/:city&:date').get(function(req, res) {
+    if(req.params.date != 'all')
+    {
+        query = Event.find({"dates.date"  :  {$regex  : req.params.date}});
+    }
+    else
+    {
+        query = Event.find(null);
+    }
+    query.where('adresse.city',req.params.city);
+    query.exec(function (err, event) { 
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        }
+        res.json(event);
+    });  
+});
+
+
+//Get number event by city and date
+router.route('/events/citydate/count/:city&:date').get(function(req, res) {
+    if(req.params.date != 'all')
+    {
+        query = Event.find({"dates.date"  :  {$regex  : req.params.date}}).count();
+    }
+    else
+    {
+        query = Event.find(null).count();
+    }
+    query.where('adresse.city',req.params.city);
+    query.exec(function (err, event) { 
+        if (err) {
+            return res.send(err);
+        }
+        res.json(event);
+    });  
+});
+
 //Start the server
 server.listen(apiPort);
 console.log('Start on -> localhost:' + apiPort + apiName);
