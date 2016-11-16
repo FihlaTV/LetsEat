@@ -1,6 +1,6 @@
 var apiName = '/letseat-api';
 var port = 8080;
-var databaseName = 'letseatdb';
+var databaseName = 'LETSEAT';
 var databaseIP = 'localhost';
 var databaseLink = 'mongodb://' + databaseIP + '/' + databaseName;
 
