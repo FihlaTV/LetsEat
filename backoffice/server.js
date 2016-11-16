@@ -64,7 +64,7 @@ router.route('/user/:id').get(function(req, res) {
 });
 
 //Add a User
-router.route('/users').post(function(req, res) {
+router.route('/user').post(function(req, res) {
     
     var user = new User(req.body);
 
@@ -74,6 +74,49 @@ router.route('/users').post(function(req, res) {
             return res.send(err);
         }
         res.json({ message: 'User Added' });
+    });
+});
+
+//Modif one user
+router.route('/user/:id').put(function(req, res) {
+    
+    User.findById(req.params.id, function(err, user) {
+        
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        }
+        
+        user.nom = req.body.nom;
+        user.prenom = req.body.prenom;
+        user.picture = req.body.picture;
+        user.age = req.body.age;
+        user.sexe = req.body.sexe;
+        user.email = req.body.email;
+        user.ville = req.body.ville;
+        user.phone = req.body.phone;
+        user.notes = req.body.notes;
+        
+        user.save(function(err) {
+            if (err) {
+                console.log(err);
+                return res.send(err);
+            }
+            res.json({ message: 'User Modified' });
+        });
+        
+    });
+});
+
+//Delete one user
+router.route('/user/:id').delete(function(req, res) {
+    
+    User.remove({_id: req.params.id}, function(err, bear) {
+        if (err) {
+                console.log(err);
+                return res.send(err);
+            }
+            res.json({ message: 'User Deleted' });
     });
 });
 
