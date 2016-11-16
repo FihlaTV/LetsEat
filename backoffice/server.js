@@ -67,6 +67,36 @@ router.route('/users').post(function(req, res) {
     });
 });
 
+
+
+
+
+//Get all events
+router.get('/events', function(req, res) {
+    Event.find(function(err, events) {
+        if (err)
+            res.send(err);
+
+        res.send(events);
+    });
+});
+
+// Create Events
+router.route('/events')
+    .post(function(req, res) {
+    
+    var event = new Event(req.body);
+    event.date = new Date(req.body.date);
+
+    event.save(function(err) {
+    if (err)
+        res.send(err);
+
+        res.json({ message: 'Event created!' });
+        });
+    });
+
+
 //Start the server
 server.listen(port);
 console.log('Start on -> localhost:' + port + apiName);
