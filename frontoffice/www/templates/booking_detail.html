@@ -2,7 +2,7 @@
 	<ion-content scroll="true" class="booking-detail-page">
 	<a ng-click="$ionicGoBack()" class="button icon-left ion-chevron-left button-clear button-dark"></a>
 	<div class="booking-detail-title">
-		<h2><span>Nom de repas</span> à <span> Lieu</span> </h2>
+		<h2><span>{{ booking.nom }}</span> à <span> {{ booking.adresse.city }}</span> </h2>
 		<p class="status">Confirmée</p>
 		<p class="reference">KK9DSC</p>
 		<hr align="left" width="10%">
@@ -10,9 +10,9 @@
 	<div class="list">
 
 	    <div class="item item-avatar">
-			<img src="../img/profil.jpeg">
-    		<h2 class="repas">Nom de repas</h2>
-	      	<p>Chef de cuisine: <span class="user-name">User Name</span></p>
+			<img src="{{ user.picture }}">
+			<h2 class="repas">{{ booking.nom }}</h2>
+			<p>Chef de cuisine: <span class="user-name">{{ user.nom + ' ' + user.prenom }}</span></p>
 	    </div>
 	    <div class="item item-booking-detail-btns">
 	    	<button class="button button-LE">
@@ -45,14 +45,14 @@
 	    </div>
 	    <div class="item">
 	    	<a href="#/">
-		    	Adresse 
-		    	<span  class="link_map_event">Ouviri dans Plans</span>
-		    	<p class="adresse_evnet">437 Avenue des Apothicaires,<br/> 34090 Montpellier</p>
+				Adresse
+				<span  class="link_map_event">Ouvrir dans Plans</span>
+				<p class="adresse_evnet">{{ booking.adresse.line }},<br/> {{ booking.adresse.postalCode }} {{ booking.adresse.city }}</p>
 		    </a>
 	    </div>
 		<div class="item">
 			<a link="#/price_detail">
-	    		Coût total  <span class="prix_event">€90</span>
+				Coût total  <span class="prix_event">€{{ booking.prix }}</span>
 	    	</a>
 	    </div>
 	    <div class="item">
