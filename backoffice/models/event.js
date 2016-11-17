@@ -6,16 +6,14 @@ var Event = new Schema({
     nom: String,
     description: String,
     nb_participant: Number,
-    dates: [
-    {
-        participants: [
-            {
-                id: Schema.Types.ObjectId,
-                status: Boolean
-            }
-            ],
-        date: Object
-    }],
+
+    participants: [
+        {
+            id: Schema.Types.ObjectId,
+            status: Boolean
+        }
+    ],
+    date: Object,
     prix: Number,
     adresse: {
         line: String,
