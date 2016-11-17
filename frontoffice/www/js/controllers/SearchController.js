@@ -1,10 +1,11 @@
-app.controller('searchCtrl', function($scope, $DateService) {
+app.controller('searchCtrl', function($scope, $DateService, $http) {
 
     $scope.credential = {
         'city': '',
         'date': '',
         'participant': 1
     }
+
     $scope.step = 'city'
     $scope.dates = []
 
