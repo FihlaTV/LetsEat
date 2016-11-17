@@ -8,8 +8,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('home', {
         'url': '/home',
-        'templateUrl': 'templates/home.html',
-        'controller': 'homeCtrl'
+        'templateUrl': 'templates/home.html'
     })
 
     $stateProvider.state('search', {
