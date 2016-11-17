@@ -34,7 +34,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('booking_detail', {
         'url': '/booking/{id}',
-        'templateUrl': 'templates/booking_detail.html'
+        'templateUrl': 'templates/booking_detail.html',
+        'controller': 'BookingDetailCtrl'
     })
 
     $stateProvider.state('profil', {
