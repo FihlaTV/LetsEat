@@ -68,6 +68,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'templateUrl': 'templates/result.html',
         'controller': 'resultCtrl'
     })
+    
+    $stateProvider.state('new_event', {
+        'url': '/new_event',
+        'templateUrl': 'templates/new_event.html',
+        'controller': 'newEventCtrl'
+    })
 
     $urlRouterProvider.otherwise('/home')
 

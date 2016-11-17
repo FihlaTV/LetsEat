@@ -1,7 +1,7 @@
 <ion-view class="background-img notlogged">
 	<ion-content scroll="true" class="menu-page">
-	<h1>{{ user.prenom }}</h1>
-	<a href="#/profil/{{ user.id_user }}" class="btn-edit-profil">Voir et modifier le profil</a>
+	<h1>User Name</h1>
+	<a href="#/profil" class="btn-edit-profil">Voir et modifier le profil</a>
 	<hr align="left" width="10%">
 	<div class="list">
 
@@ -42,6 +42,12 @@
 			</svg>
 	    </button>
 	  </div>
+		<div class="item item-button-right" ng-click="logout()">
+			Se déconnecter
+			<button class="button button-light">
+				<i class="icon ion-ios-locked-outline"></i>
+			</button>
+		</div>
 
 	  
 
