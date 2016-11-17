@@ -1,10 +1,12 @@
-app.controller('searchCtrl', function($scope, $DateService, $http) {
+app.controller('searchCtrl', function($scope, $DateService, $http, $LocalStorageService, $location) {
 
     $scope.credential = {
         'city': '',
         'date': '',
         'participant': 1
     }
+
+    $scope.count = false;
 
     $scope.step = 'city'
     $scope.dates = []
@@ -14,10 +16,23 @@ app.controller('searchCtrl', function($scope, $DateService, $http) {
             $scope.step = 'date'
         else
             $scope.step = 'recap'
+
+        if($scope.step == 'recap') {
+            $http.get("http://5.196.67.70:5000/letseat-api/events/citydate/count/"+$scope.credential.city+"&2016").then(function(res){
+                $scope.count = res.data
+            }, function(error){
+                console.log(error)
+            })
+        }
     }
 
     $scope.search = function(credential) {
-        console.log(credential)
+        $http.get("http://5.196.67.70:5000/letseat-api/events/citydate/"+$scope.credential.city+"&2016").then(function(res){
+            $LocalStorageService.setObject("result", res.data)
+            $location.path("/result")
+        }, function(error){
+            console.log(error)
+        })
     }
 
     $scope.changeStep = function (step) {

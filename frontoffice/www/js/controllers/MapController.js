@@ -1,14 +1,19 @@
-app.controller('mapCtrl', function($scope, $cordovaGeolocation, $http) {
+app.controller('mapCtrl', function($scope, $cordovaGeolocation, $LocalStorageService) {
 
-    $http.get("http://5.196.67.70:5000/letseat-api//events/citydate/Montpellier&2016").then(function(res) {
-        var data = res.data
+    setTimeout(function(){
+        launch()
+    }, 0)
+
+    var launch = function(){
+        var data = $LocalStorageService.getObject("result")
+        $scope.city = data[0].adresse.city
         data.forEach(function(d) {
             d.selected = false
         })
         data[0].selected = true
         $scope.activities = data
         setMarkers(map)
-    });
+    };
 
     var map;
     map = new google.maps.Map(document.getElementById('map'), {
@@ -17,12 +22,6 @@ app.controller('mapCtrl', function($scope, $cordovaGeolocation, $http) {
         disableDefaultUI: true
     });
     const geocoder = new google.maps.Geocoder()
-
-    map.addListener('click', function() {
-        $scope.$apply(function(){
-            $scope.popup.hide = true
-        });
-    });
 
     var markers = [];
 

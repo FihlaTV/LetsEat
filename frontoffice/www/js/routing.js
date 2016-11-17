@@ -59,6 +59,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'templateUrl': 'templates/comment.html'
     })
 
+    $stateProvider.state('result', {
+        'url': '/result',
+        'templateUrl': 'templates/result.html',
+        'controller': 'resultCtrl'
+    })
+
     $urlRouterProvider.otherwise('/home')
 
 });

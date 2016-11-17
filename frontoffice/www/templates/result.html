@@ -1,0 +1,54 @@
+<ion-view class="background-img notlogged">
+    <ion-content scroll="true" class="result">
+        <div class="header">
+            <img src="http://lorempicsum.com/futurama/400/200/1" />
+            <a ng-click="$ionicGoBack()" class="button btn-back icon-left ion-chevron-left button-clear button-dark"></a>
+
+            <div>
+                <button class="reglage btn" ui-sref="search">
+                    <img src="img/params.svg" />
+                </button>
+                <button class="map btn" ui-sref="map">
+                    <img src="img/map.svg" />
+                </button>
+            </div>
+        </div>
+
+        <h2>{{ result[0].adresse.city }}</h2>
+        <div class="separator"></div>
+
+        <h3>Découvrez {{ result.length }} ateliers</h3>
+
+        <div class="event" ng-repeat="event in result" ui-sref="atelier({id: event._id})">
+            <div class="background">
+                <img src="{{ event.picture }}" />
+                <div class="overlay overlay-black">
+                    <span class="price">€{{ event.prix }}</span>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="info-title">
+                    <h4>{{ event.nom }}</h4>
+                    <fieldset class="rating">
+                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                    </fieldset>
+                </div>
+                <div class="info-picture" ui-sref="profil({id: event.creatorUser[0].id_user })">
+                    <img src="{{ event.creatorUser[0].picture }}"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="padding"></div>
+    </ion-content>
+</ion-view>
