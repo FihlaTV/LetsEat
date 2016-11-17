@@ -13,6 +13,8 @@ var User = new Schema({
     ville: String,
     phone: String,
     notes: [{
+        id: String,
+        date: Object,
         rating: Number,
         description: String
     }] 
