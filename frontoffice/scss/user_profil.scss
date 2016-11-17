@@ -44,6 +44,11 @@
 		    	float: right;
 		    	color: $LE-red;
 		    }
+		    .user-rating{
+				color: $LE-red;
+				font-weight: 400;
+				text-align: right;
+		    }
 		}
 		.item.item-avatar{
 			border: none;

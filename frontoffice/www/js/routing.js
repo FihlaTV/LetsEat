@@ -24,7 +24,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     
     $stateProvider.state('menu', {
         'url': '/menu',
-        'templateUrl': 'templates/menu.html'
+        'templateUrl': 'templates/menu.html',
+        'controller': 'menuCtrl'
     })
 
     $stateProvider.state('booking', {
@@ -39,8 +40,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 
     $stateProvider.state('profil', {
-        'url': '/profil',
-        'templateUrl': 'templates/user_profil.html'
+        'url': '/profil/{id}',
+        'templateUrl': 'templates/user_profil.html',
+        'controller': 'profilUserCtrl'
     })
 
     $stateProvider.state('map', {
@@ -50,13 +52,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 
     $stateProvider.state('edit_user', {
-        'url': '/edit_user',
-        'templateUrl': 'templates/edit_user.html'
+        'url': '/edit_user/{id}',
+        'templateUrl': 'templates/edit_user.html',
+        'controller': 'profilUserCtrl'
     })
 
     $stateProvider.state('comment', {
-        'url': '/comment',
-        'templateUrl': 'templates/comment.html'
+        'url': '/comment/{id}',
+        'templateUrl': 'templates/comment.html',
+        'controller': 'commentCtrl'
     })
 
     $stateProvider.state('result', {

@@ -5,52 +5,39 @@
 	  </div>
 	  <h3 class="title" style="text-align:center">Modifier le profil</h3>
 	  <div class="buttons">
-	    <a ng-click="＃" class="button icon-left ion-ios-checkmark-outline button-clear button-dark"></a>
+	    <a ng-click="submit(user)" class="button icon-left ion-ios-checkmark-outline button-clear button-dark"></a>
 	  </div>
 	</ion-header-bar>
 	<ion-content scroll="true" class="edit-profil">
-		<img src="../img/profil.jpeg" width="100%" height="300px" class="user_photo">
+		<img src="{{user.picture}}" width="100%" height="300px" class="user_photo">
 		<a ng-click="#" class="button icon-left ion-ios-camera-outline button-clear button-dark btn-change-photo"></a>
 		<div class="list">
 		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Prénom</span>
-		    <input type="text" placeholder="Prénom">
-		  </label>
-		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Nom</span>
-		    <input type="text" placeholder="Nom">
-		  </label>
-		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Description</span>
-		    <input type="text" placeholder="A propos de moi">
+		    <span class="input-label">Nom & Prénom</span>
+		    <input type="text" placeholder="Prénom" ng-model="user.prenom">
 		  </label>
 		  <label class="item item-input item-stacked-label">
 		    <span class="input-label">Sexe</span>
-		    <input type="text" placeholder="F/M">
+		    <select ng-model="user.sexe">
+		    	<option value="female">Femme</option>
+		    	<option value="male">Homme</option>
+		    </select>
 		  </label>
 		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Date de naissance</span>
-		    <input type="text" placeholder="Votre date de naissance">
+		    <span class="input-label">Age</span>
+		    <input type="number" placeholder="Votre age" ng-model="user.age">
 		  </label>
 		  <label class="item item-input item-stacked-label">
 		    <span class="input-label">E-mail</span>
-		    <input type="text" placeholder="Votre adresse mail">
+		    <input type="email" placeholder="Votre adresse mail" ng-model="user.email">
 		  </label>
 		  <label class="item item-input item-stacked-label">
 		    <span class="input-label">Téléphone</span>
-		    <input type="text" placeholder="Votre numéro de téléphone">
+		    <input type="tel" placeholder="Votre numéro de téléphone" ng-model="user.phone">
 		  </label>
 		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Adresse</span>
-		    <input type="text" placeholder="Votre adresse">
-		  </label>
-		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Ecole</span>
-		    <input type="text" placeholder="Saisissez l'établissement de vos">
-		  </label>
-		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Emploi</span>
-		    <input type="text" placeholder="Saisissez la profession">
+		    <span class="input-label">Ville</span>
+		    <input type="text" placeholder="Votre ville"  ng-model="user.city">
 		  </label>
 		</div>
 	</ion-content>

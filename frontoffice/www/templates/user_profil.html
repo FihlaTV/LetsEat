@@ -1,10 +1,10 @@
 <ion-view class="background-img notlogged">
 	<ion-content scroll="true" class="profil">
-	<img src="../img/profil.jpeg" width="100%" height="300px" class="user_photo">
+	<img src="{{user.picture}}" width="100%" height="300px" class="user_photo">
 	<div class="descripiton overlay overlay-white ">
 		<a ng-click="$ionicGoBack()" class="button icon-left ion-chevron-left button-clear button-dark button-back"></a>
 	</div>
-	<a class="button button-stable button-edit-profil" href="#/edit_user"> 
+	<a class="button button-stable button-edit-profil" href="#/edit_user/{{user.id_user}}">
 		<svg width="20px" height="20px" viewBox="20 10 491 491" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
 		    <desc>Created with Sketch.</desc>
@@ -13,32 +13,29 @@
 		</svg>
 	</a>
 	<div class="user-profil-title">
-		<h2>Nom de User</h2>
-		<p>Ville, Pays</p>
+		<h2>{{user.prenom}}</h2>
+		<p>{{user.ville}}</p>
 	</div>
 
 	<div class="list">
 		<div class="item">
-			E-mail  <span class="user_email">exemple.version1@gmail.com</span>
+			E-mail  <span class="user_email">{{user.email}}</span>
 		</div>
 		<div class="item">
-			N° tél  <span class="user_tel">0607080910</span>
+			N° tél  <span class="user_tel">{{user.phone}}</span>
 		</div>
 		<div class="item">
 			Membre depuis <span class="user_create_date">11/11/2011</span>
 		</div>
 		<div class="item">
-			<div class="box-home">
-				<div class="item item-avatar">
-					<img src="../img/profil1.jpg">
-		    		<h2 class="comment-user">Comment User</h2>
-			      	<p class="comment-date">nov.2016</p>
-			    </div>
-		        <p class="last_comment">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>
-		    </div>
+			Commentaire
+			<span>
+			    <p class="user-rating">{{lastcomment.rating}} / 5</p></br/>
+		        {{lastcomment.description}}
+		    </span>
 		</div>
 		<div class="item comment-link">
-			<a href="#/comment" class="link_comments">
+			<a href="#/comment/{{user.id_user}}" class="link_comments">
 				Voir tous les commentaires
 			</a>
 		</div>
