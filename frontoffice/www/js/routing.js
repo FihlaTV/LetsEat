@@ -76,6 +76,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'controller': 'newEventCtrl'
     })
 
+    $stateProvider.state('event_detail', {
+        'url': '/event/{id}',
+        'templateUrl': 'templates/eventDetail.html',
+        'controller': 'BookingDetailCtrl'
+    })
+
     $urlRouterProvider.otherwise('/home')
 
 });

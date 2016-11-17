@@ -35,7 +35,7 @@ app.controller('searchCtrl', function($scope, $DateService, $http, $LocalStorage
                 'result': res.data
             }
             results.splice(0, 0, result)
-            if(result.length >= 5)
+            if(results.length >= 5)
                 results.pop()
             $LocalStorageService.setObject("results", results)
             $location.path("/result/none")
