@@ -1,7 +1,6 @@
 app.controller('profilUserCtrl', function($scope, $http, $stateParams) {
 
 	$http.get("http://5.196.67.70:5000/letseat-api/user/"+$stateParams.id).then(function(res) {
-		console.log(res.data[0]);
 		$scope.user = res.data[0];
 		$scope.lastcomment =$scope.user.notes[0];
     });

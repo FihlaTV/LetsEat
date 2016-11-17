@@ -24,7 +24,7 @@ app.factory('$FacebookService', function ($LocalStorageService, $cordovaOauth, $
                                 $LocalStorageService.set("user_profile", results.data)
                                 $location.path("/home")
                             }, function(errorrr) {
-                                console.log(errorrr)
+                                swal("Erreur !", "Votre profil n'a pas pu être créé", "error")
                             });
                         } else {
                             $LocalStorageService.set("user_profile", resultGetUser.data)
@@ -32,16 +32,19 @@ app.factory('$FacebookService', function ($LocalStorageService, $cordovaOauth, $
                         }
 
                     }, function(errorrr) {
-                        console.log(errorrr);
+                        console.log(errorrr)
+                        swal("Erreur !", "Connexion échoué", "error")
                     });
 
                     //$scope.state.go('home')
                 }, function(errorr) {
-                    console.log(errorr);
+                    console.log(errorr)
+                    swal("Erreur !", "Connexion échoué", "error")
                 });
 
             }, function(error) {
                 console.log(error)
+                swal("Erreur !", "Connexion échoué", "error")
             })
 
             return false

@@ -41,6 +41,7 @@ app.controller('searchCtrl', function($scope, $DateService, $http, $LocalStorage
             $location.path("/result/none")
         }, function(error){
             console.log(error)
+            swal("Erreur !", "La recherche à échoué", "error")
         })
     }
 
