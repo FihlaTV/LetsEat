@@ -42,6 +42,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'templateUrl': 'templates/user_profil.html'
     })
 
+    $stateProvider.state('map', {
+        'url': '/map',
+        'templateUrl': 'templates/map.html',
+        'controller': 'mapCtrl'
+    })
+
     $urlRouterProvider.otherwise('/home')
 
 });
