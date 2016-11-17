@@ -10,7 +10,7 @@ app.factory('$LocalStorageService', function () {
             localStorage.setItem(key, JSON.stringify(value));
         },
         getObject: function (key) {
-            return JSON.parse(localStorage.getItem(key) || '{}');
+            return JSON.parse(localStorage.getItem(key) || '[]');
         },
         isExist: function (key) {
             var bool = false;

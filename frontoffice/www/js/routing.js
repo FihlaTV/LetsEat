@@ -8,7 +8,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('home', {
         'url': '/home',
-        'templateUrl': 'templates/home.html'
+        'templateUrl': 'templates/home.html',
+        'controller': 'homeCtrl'
     })
 
     $stateProvider.state('search', {
@@ -64,7 +65,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 
     $stateProvider.state('result', {
-        'url': '/result',
+        'url': '/result/{id}',
         'templateUrl': 'templates/result.html',
         'controller': 'resultCtrl'
     })

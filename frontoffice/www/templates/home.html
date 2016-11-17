@@ -6,11 +6,11 @@
         <div class="box-home">
             <h2>Recherche récentes</h2>
             <div class="containt-events">
-                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
-                    <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
+                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, result) in results" ui-sref="result({id: key})">
+                    <img src="http://lorempicsum.com/futurama/300/200/1" />
                     <div class="overlay overlay-black">
-                        <h3>Montpellier</h3>
-                        <p>2 repas</p>
+                        <h3>{{ result.city }}</h3>
+                        <p>{{ result.participant }} repas</p>
                     </div>
                 </div>
             </div>
@@ -42,26 +42,6 @@
                             <img src="http://lorempicsum.com/futurama/40/40/{{(key + 2)}}" />
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box-home home-big">
-            <h2>Juste pour le week-end</h2>
-            <div class="containt-events">
-                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
-                    <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
-                    <p class="city">Lille</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="box-home home-big">
-            <h2>Destination populaire</h2>
-            <div class="containt-events">
-                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, x) in [1,2,3,4,5]">
-                    <img src="http://lorempicsum.com/futurama/300/200/{{(key + 1)}}" />
-                    <p class="city">Amsterdam</p>
                 </div>
             </div>
         </div>
