@@ -2,40 +2,33 @@
 app.controller('newEventCtrl', function($scope, $http, $stateParams,$LocalStorageService) {
 	angular.module("myApp", ["ionic", "ion-datetime-picker"]);
 
-	$scope.user = $LocalStorageService.getObject("user_profile")
-
-	$scope.adresse = {
-		"line":"",
-		"postalCode": "",
-        "city": "",
-        "country": ""
-	}
-	$scope.date = {
-        "date": ""
-	}
+	const user = $LocalStorageService.getObject("user_profile")
 
 	$scope.credential = {
-		"createur": $scope.user.prenom,
+		"createur": user.id_user,
 	    "nom": "",
 	    "description": "",
-	    "nb_participant": "",
-	    "prix": "",
-	    "adresse": $scope.adresse,
-	    "picture": "",
-	    "dates":[$scope.date]
+		"prix": "",
+		"picture": "",
+		"date": "",
+	    "nb_participant": 1,
+	    "adresse": {
+			"line": "",
+			"postalCode": "",
+			"city": "",
+			"country": ""
+		},
+	    "participants": []
 	}
 
-
-
-console.log($scope.credential);
 	$scope.step = 'city'
 
 	var options = {
   		types: ['(cities)']
  	};
 
- 	var input = document.getElementById('city');
- 	var autocomplete = new google.maps.places.Autocomplete(input, options);
+ 	//var input = document.getElementById('city');
+ 	//var autocomplete = new google.maps.places.Autocomplete(input, options);
 
 	var map;
     map = new google.maps.Map(document.getElementById('map'), {
@@ -46,6 +39,7 @@ console.log($scope.credential);
     const geocoder = new google.maps.Geocoder()
 
     $scope.cityLocation = function(city) {
+    	$scope.credential.adresse.city = city
     	geocoder.geocode( {'address': city}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location)
@@ -61,11 +55,10 @@ console.log($scope.credential);
     }
 
     $scope.submit = function(credential) {
-    	console.log($scope.credential);
-    	$http.post("http://5.196.67.70:5000/letseat-api/event", $scope.credential).then(function(res){
-			swal("Good job!", "Votre profil est bien modifié", "success")
+    	$http.post("http://5.196.67.70:5000/letseat-api/event", credential).then(function(res){
+			swal("Good job!", "Votre atelier est bien été créé", "success")
 		}, function(error) {
-			sweetAlert("Oops...", "Votre profil n'est pas modifié!", "error");
+			sweetAlert("Oops...", "Votre atelier n'a pas été créé!", "error");
 		})
 	}
 });
