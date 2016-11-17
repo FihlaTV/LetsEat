@@ -190,7 +190,7 @@ router.route('/event/:id').put(function(req,res){
         event.nom = req.body.nom;
         event.description = req.body.description;
         event.nb_participant = req.body.nb_participant;
-        event.dates = req.body.dates;
+        event.date = req.body.date;
         event.prix = req.body.prix;
         event.adresse = req.body.adresse;
         event.picture = req.body.picture;
