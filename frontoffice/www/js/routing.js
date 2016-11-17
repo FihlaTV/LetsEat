@@ -48,6 +48,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'controller': 'mapCtrl'
     })
 
+    $stateProvider.state('edit_user', {
+        'url': '/edit_user',
+        'templateUrl': 'templates/edit_user.html'
+    })
+
     $urlRouterProvider.otherwise('/home')
 
 });
