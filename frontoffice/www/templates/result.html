@@ -8,7 +8,7 @@
                 <button class="reglage btn" ui-sref="search">
                     <img src="img/params.svg" />
                 </button>
-                <button class="map btn" ui-sref="map">
+                <button class="map btn" ui-sref="map({ id: id })">
                     <img src="img/map.svg" />
                 </button>
             </div>
@@ -19,7 +19,7 @@
 
         <h3>Découvrez {{ result.length }} ateliers</h3>
 
-        <div class="event" ng-repeat="event in result" ui-sref="atelier({id: event._id})">
+        <div class="event" ng-repeat="event in result" ui-sref="event_detail({id: event._id})">
             <div class="background">
                 <img src="{{ event.picture }}" />
                 <div class="overlay overlay-black">

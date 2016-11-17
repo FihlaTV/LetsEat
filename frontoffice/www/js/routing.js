@@ -47,7 +47,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 
     $stateProvider.state('map', {
-        'url': '/map',
+        'url': '/map/{id}',
         'templateUrl': 'templates/map.html',
         'controller': 'mapCtrl'
     })

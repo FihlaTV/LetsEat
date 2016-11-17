@@ -26,6 +26,11 @@ app.controller('searchCtrl', function($scope, $DateService, $http, $LocalStorage
         }
     }
 
+    $scope.city = function (city) {
+        $scope.step = 'date'
+        $scope.credential.city = city
+    }
+
     $scope.search = function(credential) {
         $http.get("http://5.196.67.70:5000/letseat-api/events/citydate/"+$scope.credential.city+"&2016").then(function(res){
             var results = $LocalStorageService.getObject("results")

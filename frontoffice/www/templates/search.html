@@ -12,6 +12,7 @@
 					ng-change="scrollTop()"
 					ng-model="credential.city"
 					class="search-input"
+                    id="city"
 				/>
 			</div>
 
@@ -126,14 +127,14 @@
 		  <li class="list-destinations-header">
 		    Destinations populaires
 		  </li>
-		  <li class="item">Montpellier</li>
-		  <li class="item">Bacelone</li>
-		  <li class="item">New York</li>
-		  <li class="item">Tokyo</li>
-		  <li class="item">Londre</li>
-		  <li class="item">Paris</li>
-		  <li class="item">Prague</li>
-		  <li class="item">Pékin</li>
+		  <li class="item" ng-click="city('Montpellier')">Montpellier</li>
+		  <li class="item" ng-click="city('Barcelone')">Barcelone</li>
+		  <li class="item" ng-click="city('New York')">New York</li>
+		  <li class="item" ng-click="city('Tokyo')">Tokyo</li>
+		  <li class="item" ng-click="city('Londres')">Londres</li>
+		  <li class="item" ng-click="city('Paris')">Paris</li>
+		  <li class="item" ng-click="city('Prague')">Prague</li>
+		  <li class="item" ng-click="city('Pékin')">Pékin</li>
 		</ul>
     </ion-content>
 </ion-view>

@@ -11,7 +11,7 @@
         <div class="content-event">
             <h2>{{ city }}</h2>
             <div class="scroll-content">
-                <div class="event {{ event.selected ? 'selected' : '' }}" ui-sref="booking_detail({id: event._id})" style="left: {{ (key * 120) + 'px'}}" ng-repeat="(key, event) in activities">
+                <div class="event {{ event.selected ? 'selected' : '' }}" ui-sref="event_detail({id: event._id})" style="left: {{ (key * 120) + 'px'}}" ng-repeat="(key, event) in activities">
                     <img src="{{ event.picture }}" />
                     <div class="overlay overlay-black">
                         <div>
