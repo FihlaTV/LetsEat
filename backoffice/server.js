@@ -55,10 +55,14 @@ router.route('/users').get(function(req, res) {
 });
 
 //Get one user
-router.route('/user/:id').get(function(req, res) {
-    User.findById(req.params.id, function(err, user) {
+router.route('/user/:id_user').get(function(req, res) {
+
+    query = User.find(null);
+    query.where('id_user',req.params.id_user);
+
+    query.exec(function (err, user) { 
         if (err) {
-            console.error(err);
+            console.log(err);
             return res.send(err);
         }
         res.json(user);
@@ -67,9 +71,8 @@ router.route('/user/:id').get(function(req, res) {
 
 //Add a User
 router.route('/user').post(function(req, res) {
-    
-    var user = new User(req.body);
 
+    var user = new User(req.body);
     user.save(function(err) {
         if (err) {
             console.error(err);
@@ -80,15 +83,16 @@ router.route('/user').post(function(req, res) {
 });
 
 //Modif one user
-router.route('/user/:id').put(function(req, res) {
-    
-    User.findById(req.params.id, function(err, user) {
-        
+router.route('/user/:id_user').put(function(req, res) {
+
+    User.findById(req.params.id_user, function(err, user) {
+
         if (err) {
             console.log(err);
             return res.send(err);
         }
-        
+
+        user.id_user = req.body.id_user;
         user.nom = req.body.nom;
         user.prenom = req.body.prenom;
         user.picture = req.body.picture;
@@ -98,7 +102,7 @@ router.route('/user/:id').put(function(req, res) {
         user.ville = req.body.ville;
         user.phone = req.body.phone;
         user.notes = req.body.notes;
-        
+
         user.save(function(err) {
             if (err) {
                 console.log(err);
@@ -106,19 +110,19 @@ router.route('/user/:id').put(function(req, res) {
             }
             res.json({ message: 'User Modified' });
         });
-        
+
     });
 });
 
 //Delete one user
-router.route('/user/:id').delete(function(req, res) {
-    
-    User.remove({_id: req.params.id}, function(err, bear) {
+router.route('/user/:id_user').delete(function(req, res) {
+
+    User.remove({id_user: req.params.id_user}, function(err, bear) {
         if (err) {
-                console.log(err);
-                return res.send(err);
-            }
-            res.json({ message: 'User Deleted' });
+            console.log(err);
+            return res.send(err);
+        }
+        res.json({ message: 'User Deleted' });
     });
 });
 
@@ -150,29 +154,29 @@ router.route('/event/:id').get(function(req, res) {
 // Create Events
 router.route('/event')
     .post(function(req, res) {
-    
+
     var event = new Event(req.body);
     event.date = new Date(req.body.date);
 
     event.save(function(err) {
-    if (err)
-        res.send(err);
+        if (err)
+            res.send(err);
 
         res.json({ message: 'Event created!' });
-        });
     });
+});
 
 //Delete one event
 router.route('/event/:id').delete(function(req, res) {
-  Event.remove({
-    _id: req.params.id
-  }, function(err, event) {
-    if (err) {
-      return res.send(err);
-    }
+    Event.remove({
+        _id: req.params.id
+    }, function(err, event) {
+        if (err) {
+            return res.send(err);
+        }
 
-    res.json({ message: 'Event deleted' });
-  });
+        res.json({ message: 'Event deleted' });
+    });
 });
 
 // Update one event
@@ -181,7 +185,7 @@ router.route('/event/:id').put(function(req,res){
         if (err) {
             return res.send(err);
         }
-        
+
         event.createur = req.body.createur;
         event.nom = req.body.nom;
         event.description = req.body.description;
@@ -190,12 +194,12 @@ router.route('/event/:id').put(function(req,res){
         event.prix = req.body.prix;
         event.adresse = req.body.adresse;
         event.picture = req.body.picture;
-     
+
         // save the event
         event.save(function(err) {
             if (err) {
                 return res.send(err);
-              }
+            }
 
             res.json({ message: 'Event updated!' });
         });
@@ -206,7 +210,7 @@ router.route('/event/:id').put(function(req,res){
 router.route('/event/country/:country').get(function(req, res) {
     query = Event.find(null);
     query.where('adresse.country',req.params.country);
-    
+
     query.exec(function (err, event) { 
         if (err) {
             console.log(err);
