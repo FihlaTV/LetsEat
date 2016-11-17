@@ -53,6 +53,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'templateUrl': 'templates/edit_user.html'
     })
 
+    $stateProvider.state('comment', {
+        'url': '/comment',
+        'templateUrl': 'templates/comment.html'
+    })
+
     $urlRouterProvider.otherwise('/home')
 
 });
