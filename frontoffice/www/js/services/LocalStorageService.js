@@ -17,6 +17,9 @@ app.factory('$LocalStorageService', function () {
             if(localStorage.getItem(key) !== null)
                 bool = true;
             return bool;
+        },
+        remove: function(key) {
+            localStorage.removeItem(key)
         }
     }
 });
