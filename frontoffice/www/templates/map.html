@@ -1,0 +1,26 @@
+<ion-view>
+    <ion-content scroll="false" class="map">
+
+        <div id="map"></div>
+
+        <div class="content-event">
+            <h2>Toulouse</h2>
+            <div class="scroll-content">
+                <div class="event {{ event.selected ? 'selected' : '' }}" ui-sref="booking_detail({id: event._id})" style="left: {{ (key * 120) + 'px'}}" ng-repeat="(key, event) in activities">
+                    <img src="{{ event.picture }}" />
+                    <div class="overlay overlay-black">
+                        <div>
+                            <span class="price">€{{ event.prix }}</span>
+                            <span>.</span>
+                            <span>5 ★</span>
+                        </div>
+                        <div class="title">
+                            <span>{{ event.nom }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
