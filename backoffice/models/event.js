@@ -6,7 +6,6 @@ var Event = new Schema({
     nom: String,
     description: String,
     nb_participant: Number,
-
     participants: [
         {
             id: Schema.Types.ObjectId,
