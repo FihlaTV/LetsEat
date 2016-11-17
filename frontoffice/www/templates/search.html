@@ -112,7 +112,14 @@
                 </button>
             </div>
 
-            <button class="goSearch" ng-show="step == 'recap'" ng-click="search(credential)">Voir 51 ateliers</button>
+            <button class="goSearch" ng-show="step == 'recap'" ng-click="search(credential)">
+                <span ng-show="count != false">Voir {{ count }} ateliers</span>
+                <div class="spinner" ng-show="count == false">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </button>
 		</form>
 
 		<ul class="destinations-populer">
