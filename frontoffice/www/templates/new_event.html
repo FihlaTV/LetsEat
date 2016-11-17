@@ -1,0 +1,73 @@
+<ion-view class="background-img notlogged">
+	<ion-content scroll="false" class="new-event">
+		<form ng-submit="submit()">
+		<div class="location">
+			<div class="location-input">
+				<h3>Dans quelle ville se trouve votre appartement ?</h3>
+				<div class="list list-inset transparent-input">
+				  <label class="item item-input ">
+				    <input type="text" placeholder="Ville" id="city" ng-model="adresse.city" ng-blur="cityLocation(adresse.city)">
+				    <i class="icon ion-ios-navigate-outline placeholder-icon"></i>
+				  </label>
+				</div>
+			</div>
+			<div class="location-maps" id="map">
+				
+			</div>
+			<button class="button button-full button-assertive" ng-click="next()" ng-show="adresse.city">
+			  Suivant
+			</button>
+		</div>
+
+		<div class="information {{ step == 'info' ? 'open' : '' }}">
+			<img src="http://lorempicsum.com/futurama/300/200/2"  width="100%" height="225px"></img>
+			<div class="change-photo overlay overlay-black">
+				<a href="changephoto">
+					<i class="icon ion-ios-camera-outline placeholder-icon"></i>
+					<h3>Ajouter des photos</h3>	
+				</a>
+			</div>
+
+			<div class="list">
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Nom de votre repas</span>
+			    <input type="text" placeholder="Ajouter un nom de votre repas" ng-model="credential.nom">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Description de votre repas</span>
+			    <input type="text" placeholder="Ajouter un description de votre repas" ng-model="credential.description">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Prix</span>
+			    <input type="number" placeholder="Prix pour chaque participant" ng-model="credential.prix">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Date</span>
+			    <input  ion-datetime-picker ng-model="date.date">
+			        {{datetimeValue| date: "yyyy-MM-dd H:mm:ss"}}
+			    </input>
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Ville</span>
+			    <input type="text" placeholder="Ville"  ng-model="adresse.city">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Pays</span>
+			    <input type="text" placeholder="Pays"  ng-model="adresse.country">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Code postal</span>
+			    <input type="text" placeholder="Code postal"  ng-model="adresse.postalCode">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Participant max.</span>
+			    <input type="tel" placeholder="Votre numéro de téléphone" ng-model="credential.nb_participant">
+			  </label>
+			</div>
+			<button class="button button-full button-assertive">
+			  Create
+			</button>
+		</div>
+		</form>
+	</ion-content>
+</ion-view>
