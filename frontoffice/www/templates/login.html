@@ -1,0 +1,35 @@
+<ion-view class="background-img notlogged">
+	<ion-content scroll="false" class="page-login">
+
+		<a href="#/connexion" class="btn-connexion">Connexion</a>
+
+		<div class="center-connexion">
+
+			<h3>Bienvenue sur <br/>Lets’Eat.</h3>
+
+			<button class="button button-light button-fb" ng-click="facebookLogin()">
+				<svg width="20px" height="20px" viewBox="0 0 21 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+					<desc>Created with Sketch.</desc>
+					<defs></defs>
+					<path d="M13.6061776,40 L13.6061776,21.7606178 L19.7374517,21.7606178 L20.6486486,14.6563707 L13.6061776,14.6563707 L13.6061776,10.1158301 C13.6061776,8.06177606 14.1776062,6.65637066 17.1274131,6.65637066 L20.8957529,6.65637066 L20.8957529,0.293436293 C20.2471042,0.200772201 18.007722,0.0154440154 15.4131274,0.0154440154 C9.97683398,0.0154440154 6.27027027,3.33590734 6.27027027,9.42084942 L6.27027027,14.6718147 L0.123552124,14.6718147 L0.123552124,21.7760618 L6.27027027,21.7760618 L6.27027027,40 L13.6061776,40 L13.6061776,40 Z" id="f" stroke="none" fill="#4A4A4A" fill-rule="evenodd"></path>
+				</svg>
+				 Poursuivre avec Facebook
+			</button>
+
+			<button class="button button-dark button-news">
+				Créer un compte
+			</button>
+
+			<a href="#/plusOptions" class="login-plus-options">Plus d’options</a>
+
+		</div>
+
+		<div>{{ profileData }}</div>
+
+		<div class="footer-connexion">
+			<p>En m’inscrivant, j’accepte les <a href="#/" >Conditions générales</a>, les <a href="#/" >Conditions de service relatives aux paiements</a>, la <a href="#/" >Politique de confidentialité</a>, la <a href="#/" >Politique de remboursement des invités</a> et <a href="#/" >la Conditions de la Garantie Hôte</a> de Let's Eat!</p>
+		</div>
+
+	</ion-content>
+</ion-view>

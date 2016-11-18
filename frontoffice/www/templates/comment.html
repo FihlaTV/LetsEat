@@ -1,0 +1,22 @@
+<ion-view class="background-img notlogged">
+	<ion-content scroll="true" class="comment-page">
+	<a ng-click="$ionicGoBack()" class="button icon-left ion-chevron-left button-clear button-dark button-back"></a>
+	<h2><span class="count-comments">3</span> commentaires</h2>
+	<hr align="left" width="10%">
+	<div class="list" ng-repeat="comment in user.notes">
+		<div class="item">
+			<div class="box-home">
+				<!-- <div class="item item-avatar">
+					<img src="../img/profil1.jpg">
+		    		<h2 class="comment-user">Comment User</h2>
+			      	<p class="comment-date">nov.2016</p>
+			    </div>
+		        <div class="contents_comment"><p>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+		        bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p></div> -->
+		        <p class="user-rating">{{comment.rating}} / 5</p></br/>
+		        {{comment.description}}
+		    </div>
+		</div>
+	</div>
+	</ion-content>
+</ion-view>

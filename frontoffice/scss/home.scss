@@ -1,0 +1,88 @@
+.home {
+  padding: 20px 0;
+
+  p.ask {
+    color: $LE-dark-text-color;
+    margin: 0 0 40px 20px
+  }
+
+  .box-home {
+    border-bottom: 1px solid $LE-lightgrey;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+
+    h2 {
+      font-weight: normal;
+      color: $LE-dark-text-color;
+      padding: 0 20px;
+      font-size: 18px;
+    }
+
+    div.containt-events {
+      position: relative;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      width: 90%;
+      height: 200px;
+      margin-left: 20px;
+
+      div.event {
+        position: absolute;
+        top: 0;
+        height: auto;
+        width: 300px;
+        margin-right: 10px;
+
+        img.picture {
+          height: 200px;
+          width: 300px;
+        }
+
+        h3, p {
+          color: $LE-white;
+          text-align: center;
+        }
+
+        h3 {
+          margin-top: 65px;
+          font-size: $font-xlarge;
+        }
+
+        p {
+          font-weight: 300;
+        }
+
+        span.price {
+          position: absolute;
+          bottom: 100px;
+          background-color: $LE-dark-text-color;
+          color: $LE-white;
+          padding: 5px;
+        }
+
+        div.infos {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 10px;
+
+          h4 {
+            color: $LE-dark-text-color;
+            font-size: $font-medium;
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+          }
+        }
+
+        p.city {
+          text-align: left;
+          color: $LE-dark-text-color;
+        }
+      }
+    }
+
+    &.home-big div.containt-events {
+      height: 260px;
+    }
+  }
+}

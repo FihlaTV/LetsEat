@@ -1,0 +1,84 @@
+.scroll {
+  height: 100%;
+}
+
+.room {
+  height: 100%;
+
+  .messages-containt {
+    position: relative;
+    padding: 10px 20px 100px 20px;
+    overflow-y: scroll;
+    height: 100%;
+
+    .message {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .picture {
+        margin-right: 10px;
+
+        img {
+          height: 40px;
+          width: 40px;
+          border-radius: 40px;
+        }
+      }
+
+      .message-text {
+        padding: 5px;
+        background-color: #AEA8D3;
+        color: $LE-dark-text-color;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      &.revert {
+        flex-direction: row-reverse;
+
+        .message-text {
+          text-align: right;
+          background-color: #E4F1FE;
+          color: $LE-dark-text-color;
+        }
+
+        .picture {
+          margin-right: 0;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+form.room {
+  position: fixed;
+  bottom: 43px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: $LE-red;
+  z-index: 10;
+
+  input {
+    height: 30px;
+    padding-left: 10px;
+    color: $LE-dark-text-color;
+    border: 1px solid $LE-white;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  button {
+    background-color: $LE-white;
+    color: $LE-red;
+    border: none;
+    margin-left: 20px;
+    border-radius: 5px;
+  }
+}

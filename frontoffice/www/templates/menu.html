@@ -1,0 +1,41 @@
+<ion-view class="background-img notlogged">
+	<ion-content scroll="true" class="menu-page">
+	<h1>{{ user.prenom }}</h1>
+	<a href="#/profil/{{ user.id_user }}" class="btn-edit-profil">Voir et modifier le profil</a>
+	<hr align="left" width="10%">
+	<div class="list">
+
+
+	  <a class="item item-button-right" href="#/new_event">
+	    Publiez votre annonce
+	    <button class="button button-light">
+			<svg width="20px" height="20px" viewBox="0 0 463 296" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+			    <desc>Created with Sketch.</desc>
+			    <defs></defs>
+			    <g id="Group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			        <path d="M455.5,249 L454.862,249 C452.998,192.113 429.979,138.902 389.539,98.461 C352.429,61.352 304.567,38.906 252.978,34.019 C254.274,31.107 255,27.887 255,24.499 C255,11.541 244.458,0.999 231.5,0.999 C218.542,0.999 208,11.542 208,24.501 C208,27.889 208.726,31.108 210.022,34.021 C158.433,38.908 110.571,61.354 73.461,98.463 C33.021,138.902 10.002,192.113 8.138,249 L7.5,249 C3.358,249 0,252.358 0,256.5 C0,260.642 3.358,264 7.5,264 L19.75,264 L34.3,283.4 C40.217,291.29 49.638,296 59.5,296 L403.5,296 C413.362,296 422.783,291.29 428.7,283.4 L443.25,264 L455.5,264 C459.642,264 463,260.642 463,256.5 C463,252.358 459.642,249 455.5,249 Z M231.5,16.001 C236.187,16.001 240,19.814 240,24.501 C240,29.188 236.187,33.001 231.5,33.001 C226.813,33.001 223,29.188 223,24.501 C223,19.814 226.813,16.001 231.5,16.001 Z M416.7,274.4 C413.6,278.533 408.666,281 403.5,281 L59.5,281 C54.334,281 49.399,278.533 46.3,274.4 L38.5,264 L424.5,264 L416.7,274.4 Z M23.149,249 C27.113,137.494 119.045,48 231.5,48 C343.955,48 435.887,137.494 439.851,249 L23.149,249 Z" id="Shape" fill="#000000"></path>
+			        <path d="M348.038,104.53 C344.752,102.007 340.043,102.625 337.521,105.91 C334.998,109.196 335.616,113.904 338.901,116.427 C369.567,139.978 391.958,173.388 401.948,210.503 C402.849,213.85 405.877,216.056 409.186,216.056 C409.831,216.056 410.487,215.972 411.14,215.796 C415.14,214.718 417.509,210.603 416.433,206.604 C405.592,166.326 381.302,130.076 348.038,104.53 Z" id="Shape" fill="#000000"></path>
+			        <path d="M314.747,83.995 C309.331,81.377 303.73,78.991 298.1,76.902 C294.216,75.462 289.9,77.442 288.46,81.325 C287.02,85.209 289,89.525 292.883,90.965 C298.07,92.889 303.23,95.088 308.219,97.499 C309.271,98.008 310.383,98.249 311.478,98.249 C314.265,98.249 316.942,96.688 318.236,94.011 C320.038,90.282 318.476,85.797 314.747,83.995 Z" id="Shape" fill="#000000"></path>
+			    </g>
+			</svg>
+	    </button>
+	  </a>
+	  <div class="item item-button-right" ng-click="logout()">
+		Se déconnecter
+		<button class="button button-light">
+			<i class="icon ion-ios-locked-outline"></i>
+		</button>
+	  </div>
+		<div class="item item-button-right" ng-click="logout()">
+			Se déconnecter
+			<button class="button button-light">
+				<i class="icon ion-ios-locked-outline"></i>
+			</button>
+		</div>
+
+	  
+
+	</div>
+	</ion-content>
+</ion-view>

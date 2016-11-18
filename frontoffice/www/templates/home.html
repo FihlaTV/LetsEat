@@ -1,0 +1,38 @@
+<ion-view>
+    <ion-content scroll="true" class="home">
+        <h1>Bonjour {{ user.prenom }}</h1>
+        <p class="ask">Quelle sera votre prochain repas ?</p>
+
+        <div class="box-home">
+            <h2>Recherche récentes</h2>
+            <div class="containt-events">
+                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, result) in results" ui-sref="result({id: key})">
+                    <img src="http://lorempicsum.com/futurama/300/200/1" />
+                    <div class="overlay overlay-black">
+                        <h3>{{ result.city }}</h3>
+                        <p>{{ result.participant }} repas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-home home-big">
+            <h2>Vu dernièrement</h2>
+            <div class="containt-events">
+                <div class="event" style="left: {{ (310 * key) }}px" ng-repeat="(key, event) in event_history" ui-sref="event_detail({id: event._id})">
+                    <img class="picture" src="{{ event.picture }}" />
+                    <span class="price">&euro; {{ event.prix }}</span>
+                    <div class="infos">
+                        <div class="info">
+                            <h4>{{ event.nom }}</h4>
+                        </div>
+                        <div class="picture">
+                            <img src="{{ event.creatorUser.picture }}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

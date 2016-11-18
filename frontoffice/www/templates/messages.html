@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-content scroll="true" class="message">
+        <h1>Messages</h1>
+
+        <div class="separator"></div>
+
+        <h2>Messages</h2>
+
+        <div class="containt-messages">
+
+            <div class="message" ui-sref="room({ id: room._id })" ng-repeat="room in rooms">
+                <div class="picture">
+                    <img src="{{ room.lastUser.picture }}" />
+                </div>
+                <div>
+                    <div class="head">
+                        <h3>{{ room.lastUser.prenom }}</h3>
+                        <span>Il y'a 2 semaines</span>
+                    </div>
+                    <div class="content">
+                        <p>{{ room.lastMessage }}</p>
+                        <span class="state"></span> <span>-</span> <span class="name">{{ room.nom }}</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </ion-content>
+</ion-view>
