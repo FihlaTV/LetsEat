@@ -224,7 +224,7 @@ router.route('/event/country/:country').get(function(req, res) {
 router.route('/events/citydate/:city&:date').get(function(req, res) {
     if(req.params.date != 'all')
     {
-        query = Event.find({"dates.date"  :  {$regex  : req.params.date}});
+        query = Event.find({"date"  :  {$regex  : req.params.date}});
     }
     else
     {
@@ -245,7 +245,7 @@ router.route('/events/citydate/:city&:date').get(function(req, res) {
 router.route('/events/citydate/count/:city&:date').get(function(req, res) {
     if(req.params.date != 'all')
     {
-        query = Event.find({"dates.date"  :  {$regex  : req.params.date}}).count();
+        query = Event.find({"date"  :  {$regex  : req.params.date}}).count();
     }
     else
     {
