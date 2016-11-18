@@ -35,13 +35,37 @@ app.controller('BookingDetailCtrl', function($scope, $stateParams, $http, $Local
                         }
                     })
 
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status)
                 }
             })
 
         })
     })
+
+    $scope.reservation = function () {
+        var iduser = $LocalStorageService.getObject("user_profile").id_user
+        var idevent = $stateParams.id
+        $http.get("http://5.196.67.70:5000/letseat-api/event/"+idevent).then(function (res) {
+
+            var find = false
+            res.data.participants.forEach(function(participant) {
+                if(participant.id == iduser)
+                    find = true
+            })
+
+            if(!find) {
+                $http.get("http://5.196.67.70:5000/letseat-api/event/reservation/"+idevent+"&"+iduser).then(function () {
+                    swal("Réussi !", "Votre réservation est bien effective", "success")
+                }, function (error) {
+                    swal("Erreur !", "Une erreur est survenu lors de la réservation", "error")
+                })
+            } else {
+                swal("Erreur !", "Vous avez déjà reservé cet atelier", "error")
+            }
+
+        }, function (error) {
+            swal("Erreur !", "Une erreur est survenue veuillez recommencer", "error")
+        })
+    }
 
     $scope.formatDate = function(date) {
         if(date !== undefined) {

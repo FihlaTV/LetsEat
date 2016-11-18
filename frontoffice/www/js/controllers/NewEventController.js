@@ -44,8 +44,6 @@ app.controller('newEventCtrl', function($scope, $http, $stateParams,$LocalStorag
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location)
                 map.setZoom(12)
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status)
             }
         })
     }
