@@ -366,7 +366,7 @@ io.sockets.on('connection', function(socket){
             message: data.message
         });
 
-        socket.emit("send", data);
+        io.sockets.emit("send", data);
     });
 });
 
