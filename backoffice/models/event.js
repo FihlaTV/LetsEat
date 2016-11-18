@@ -8,7 +8,7 @@ var Event = new Schema({
     nb_participant: Number,
     participants: [
         {
-            id: Schema.Types.ObjectId,
+            id: String,
             status: Boolean
         }
     ],
