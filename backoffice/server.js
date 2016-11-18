@@ -17,6 +17,7 @@ var router = express.Router();
 //Models
 var User = require('./models/user');
 var Event = require('./models/event');
+var Room = require('./models/rooms');
 
 //Configure server
 server.use(bodyParser());
@@ -283,6 +284,85 @@ router.route('/events/citydate/count/:city&:date').get(function(req, res) {
     });  
 });
 
+//Get all rooms for a user
+router.route('/:id_user/room').get(function(req, res) {
+    Room.find()
+        .where('participants.id_user')
+        .in([req.params.id_user])
+        .exec(function (err, rooms) {
+        if (err) {
+            console.error(err);
+            return res.send(err);
+        }
+        res.json(rooms);
+    });
+});
+
+//Add a User
+router.route('/room').post(function(req, res) {
+
+    var room = new Room(req.body);
+    console.log(req.body)
+    room.save(function(err) {
+        if (err) {
+            console.error(err);
+            return res.send(err);
+        }
+        res.json({ message: 'Room Added' });
+    });
+});
+
 //Start the server
 server.listen(apiPort);
 console.log('Start on -> localhost:' + apiPort + apiName);
+
+var addMessageOnRoom = function(idRoom, messages) {
+    Room.findOne({ _id: idRoom }, function(err, room) {
+        if (err) {
+            console.log(err);
+        }
+
+        room.messages.push({
+            id_user: messages.id_user,
+            messages: messages.message
+        });
+
+        // save the event
+        room.save(function(err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+    });
+    console.log("add")
+};
+
+
+
+
+// TCHAT PARTIE
+
+var http = require("http");
+httpServer = http.createServer(function(req, res) {
+    console.log("Request http "+res);
+});
+var io = require("socket.io").listen(httpServer);
+
+io.sockets.on('connection', function(socket){
+    socket.on("receive", function(data) {
+        addMessageOnRoom(data.id_room, {
+            id_user: data.id_user,
+            message: data.message
+        });
+
+        socket.emit("send", data);
+    });
+});
+
+httpServer.listen(5010);
+console.log("Server tchat is start :)");
+
+
+
+
+
