@@ -38,8 +38,8 @@
 	    	Participant  <span class="time_event">{{ booking.participants.length }}</span>
 	    </div>
 	    <div class="item">
-	    	<a link="#/event">
-		    	<img src="{{ booking.picture }}" width="100%" height="225px"/>
+	    	<a link="#/event/{booking._id}">
+		    	<img src="img/{{ event.nom | lowercase }}.jpg" width="100%" height="225px"/>
 		    	<p class="description_event">{{ booking.description }}</p>
 	    	</a>
 	    </div>
