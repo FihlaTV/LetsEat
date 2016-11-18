@@ -1,0 +1,20 @@
+<script src="http://5.196.67.70:5010/socket.io/socket.io.js"></script>
+<ion-view>
+    <ion-content scroll="false" class="room">
+        <div class="messages-containt" id="messages-box">
+            <div class="message {{ message.id_user != id_user ? 'revert' : '' }}" ng-repeat="message in room.messages">
+                <div class="picture">
+                    <img src="{{ message.userJSON.picture }}" />
+                </div>
+                <div class="message-text">
+                    <p>{{ message.messages }}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+    <form class="room" ng-submit="send(message)">
+        <input type="text" ng-model="message" placeholder="Votre message" required/>
+        <button>Envoyer</button>
+    </form>
+</ion-view>

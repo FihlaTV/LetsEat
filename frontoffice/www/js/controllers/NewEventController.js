@@ -1,5 +1,5 @@
 
-app.controller('newEventCtrl', function($scope, $http, $stateParams,$LocalStorageService) {
+app.controller('newEventCtrl', function($scope, $http, $stateParams,$LocalStorageService, $location) {
 	angular.module("myApp", ["ionic", "ion-datetime-picker"]);
 
 	const user = $LocalStorageService.getObject("user_profile")
@@ -55,6 +55,7 @@ app.controller('newEventCtrl', function($scope, $http, $stateParams,$LocalStorag
     $scope.submit = function(credential) {
     	$http.post("http://5.196.67.70:5000/letseat-api/event", credential).then(function(res){
 			swal("Good job!", "Votre atelier est bien été créé", "success")
+			$location.path("/home")
 		}, function(error) {
 			sweetAlert("Oops...", "Votre atelier n'a pas été créé!", "error");
 		})

@@ -12,7 +12,7 @@ app.controller('applicationCtrl', function($scope, UsersService, $location) {
         $scope.isConnect = UsersService.isConnect()
 
         if(!$scope.isConnect)
-            $location.path("/new_event")
+            $location.path("/login")
     }
 
 

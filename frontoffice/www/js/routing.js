@@ -20,7 +20,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('message', {
         'url': '/message',
-        'templateUrl': 'templates/messages.html'
+        'templateUrl': 'templates/messages.html',
+        'controller': 'messageCtrl'
     })
     
     $stateProvider.state('menu', {
@@ -31,7 +32,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('booking', {
         'url': '/booking',
-        'templateUrl': 'templates/booking.html'
+        'templateUrl': 'templates/booking.html',
+        'controller': 'bookingCtrl'
     })
 
     $stateProvider.state('booking_detail', {
@@ -80,6 +82,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         'url': '/event/{id}',
         'templateUrl': 'templates/eventDetail.html',
         'controller': 'BookingDetailCtrl'
+    })
+
+    $stateProvider.state('room', {
+        'url': '/room/{id}',
+        'templateUrl': 'templates/room.html',
+        'controller': 'RoomCtrl'
     })
 
     $urlRouterProvider.otherwise('/home')

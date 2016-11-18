@@ -44,6 +44,8 @@ app.controller('BookingDetailCtrl', function($scope, $stateParams, $http, $Local
     $scope.reservation = function () {
         var iduser = $LocalStorageService.getObject("user_profile").id_user
         var idevent = $stateParams.id
+        var idcreator = $scope.booking.createur
+
         $http.get("http://5.196.67.70:5000/letseat-api/event/"+idevent).then(function (res) {
 
             var find = false
@@ -55,6 +57,15 @@ app.controller('BookingDetailCtrl', function($scope, $stateParams, $http, $Local
             if(!find) {
                 $http.get("http://5.196.67.70:5000/letseat-api/event/reservation/"+idevent+"&"+iduser).then(function () {
                     swal("Réussi !", "Votre réservation est bien effective", "success")
+
+                    $http.post("http://5.196.67.70:5000/letseat-api/room", {
+                        nom: $scope.booking.nom,
+                        participants: [{id_user: iduser}, {id_user: idcreator}],
+                        messages: []
+                    }).then(function(){
+                        console.log("ok room create")
+                    })
+
                 }, function (error) {
                     swal("Erreur !", "Une erreur est survenu lors de la réservation", "error")
                 })

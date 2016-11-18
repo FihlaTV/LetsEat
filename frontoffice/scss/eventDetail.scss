@@ -97,18 +97,18 @@
         }
       }
     }
-
-    button.btn {
-      position: fixed;
-      bottom: 44px;
-      left: 0;
-      height: 50px;
-      width: 100%;
-      background-color: $LE-red;
-      color: $LE-white;
-      z-index: 5;
-      border: none;
-      font-size: $font-large;
-    }
   }
+}
+
+button.btn {
+  position: fixed;
+  bottom: 44px;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: $LE-red;
+  color: $LE-white;
+  z-index: 5;
+  border: none;
+  font-size: $font-large;
 }
