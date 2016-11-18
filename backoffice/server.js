@@ -206,6 +206,29 @@ router.route('/event/:id').put(function(req,res){
     });
 });
 
+// reservation event
+router.route('/event/reservation/:id&:user').get(function(req,res){
+    Event.findOne({ _id: req.params.id }, function(err, event) {
+        if (err) {
+            return res.send(err);
+        }
+
+        event.participants.push({
+            id: req.params.user,
+            status: true
+        });
+
+        // save the event
+        event.save(function(err) {
+            if (err) {
+                return res.send(err);
+            }
+
+            res.json({ message: 'Reservation success!' });
+        });
+    });
+});
+
 // Get event by country
 router.route('/event/country/:country').get(function(req, res) {
     query = Event.find(null);
