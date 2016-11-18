@@ -298,6 +298,17 @@ router.route('/:id_user/room').get(function(req, res) {
     });
 });
 
+//Get room by id
+router.route('/room/:id').get(function(req, res) {
+    Room.findById(req.params.id, function(err, room) {
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        }
+        res.json(room);
+    });
+});
+
 //Add a User
 router.route('/room').post(function(req, res) {
 
