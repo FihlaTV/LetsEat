@@ -284,6 +284,20 @@ router.route('/events/citydate/count/:city&:date').get(function(req, res) {
     });  
 });
 
+//Get event bookkin
+router.route('/events/booking/:iduser').get(function(req, res) {
+    Event.find()
+        .where('participants.id')
+        .in([req.params.iduser])
+        .exec(function (err, events) {
+        if (err) {
+            console.error(err);
+            return res.send(err);
+        }
+        res.json(events);
+    }); 
+});
+
 //Get all rooms for a user
 router.route('/:id_user/room').get(function(req, res) {
     Room.find()
