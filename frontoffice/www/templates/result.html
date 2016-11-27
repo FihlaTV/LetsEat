@@ -1,7 +1,7 @@
 <ion-view class="background-img notlogged">
     <ion-content scroll="true" class="result">
         <div class="header">
-            <img src="http://lorempicsum.com/futurama/400/200/1" />
+            <img style="width: 100%; height: 200px" src="img/{{ result[0].adresse.city | lowercase }}.jpg" />
             <a ng-click="$ionicGoBack()" class="button btn-back icon-left ion-chevron-left button-clear button-dark"></a>
 
             <div>
@@ -21,7 +21,7 @@
 
         <div class="event" ng-repeat="event in result" ui-sref="event_detail({id: event._id})">
             <div class="background">
-                <img src="{{ event.picture }}" />
+                <img src="img/{{ event.nom | lowercase }}.jpg" />
                 <div class="overlay overlay-black">
                     <span class="price">€{{ event.prix }}</span>
                 </div>
