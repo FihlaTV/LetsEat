@@ -1,15 +1,30 @@
-# Pour commit #
+# Let's Eat #
 
-* Passer le ticket en inprogress (trello)
-* Vérifier la branche si "frontoffice" ou "backoffice" selon le dev
-* Mettre à jour la branche 'git pull --rebase'
-* Commencer une nouvelle branche à partir de "frontoffice" ou "backoffice" en faisant 'git checkout -b NOMDEBRANCHE'
-* Faire le dev
-* Quand c'est finis on peut voir les modifications avec 'git status'
-* Pour ajouter des fichiers créer 'git add cheminduficchier'
-* Pour valider les modifications 'git stage -p' et 'y' pour oui et 'n' pour non
-* Faire le commit avec le message formaté comme ceci 'git commit -m "[Evo ou Fix][FO ou BO] Nomdebranche - message expliquatif"'
-* Faire un push 'git push origin NOMDEBRANCHE'
-* Créer la pull request sur bitbucket
-* Passer le ticket en resolved
-* Passer au prochain ticket en suivant l'ordre déjà établit
+## Prerequisites ##
+
+* NodeJS & npm
+* cordova & ionic
+* xcode (optional)
+* androidStudio (optional)
+
+## Install the modules ##
+
+'npm install' To install all application modules
+
+## Launch the server ##
+
+'cd backoffice && npm start' Starts the server
+
+## Launch the application ##
+
+### Web interface ###
+
+'ionic serve' Starts interface in browser | Does not require an emulator
+
+### IOS Application launch ###
+
+'ionic run-ios' launch application in ios emulator
+
+### Android Application launch ###
+
+'ionic run-android' launch application in android emulator
